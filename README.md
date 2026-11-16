@@ -1,4 +1,3 @@
-```markdown
 # ProPainterHighResolution - 长视频去水印分块处理脚本
 
 基于 [ProPainter](https://github.com/sczhou/ProPainter) 的自动化脚本，一站式处理超长视频的水印移除。ProPainter 官方只能整段视频一次处理，长视频直接爆显存/内存，本脚本自动分块、逐块推理、归集输出、合成成品。
