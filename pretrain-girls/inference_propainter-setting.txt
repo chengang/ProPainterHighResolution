@@ -1,0 +1,48 @@
+python inference_propainter.py \
+  --video inputs/my_video/frames \
+  --mask  inputs/my_video/mask.png \
+  --subvideo_length 80 \
+  --fp16
+  --neighbor_length 10 \
+  --ref_stride 10 \
+  --mask_dilation 4 \
+  --save_fps 30
+
+
+python inference_propainter.py \
+  --video inputs/my_video/frames \
+  --mask  inputs/my_video/mask.png \
+  --subvideo_length 80 \
+  --neighbor_length 12 \
+  --ref_stride 8 \
+  --mask_dilation 12 \
+  --save_fps 30
+
+
+uv run inference_propainter.py \
+  --video inputs/my_video/frames \
+  --mask  inputs/my_video/mask.png \
+  --subvideo_length 16 \
+  --neighbor_length 8 \
+  --ref_stride 8 \
+  --mask_dilation 4 \
+  --save_fps 30
+
+
+uv run inference_propainter.py \
+  --video inputs/my_video/frames \
+  --mask  inputs/my_video/mask.png \
+  --subvideo_length 80 \
+  --fp16
+  --ref_stride 10 \
+  --mask_dilation 4 \
+  --save_fps 30
+
+uv run inference_propainter.py --video inputs/my_video/frames --mask inputs/my_video/mask.png --fp16 --subvideo_length 80 --neighbor_length 12 --ref_stride 10 --mask_dilation 4 --save_fps 30
+
+uv run inference_propainter.py --video inputs/mmm/frames --mask inputs/mmm/mask.png --fp16 --subvideo_length 48 --neighbor_length 12 --mask_dilation 4 --save_fps 30 --save_frames
+
+
+uv run example.py --frames=./my_video/frames/ --masks=./my_video/mask.png --output=./results --resize_ratio=1.0 --save
+
+$ ffmpeg -y -framerate 30 -i output_frames/%06d.png -i inputs/my_video/audio.m4a -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -map 0:v:0 -map 1:a:0 -c:a copy output-delogo1.mp4
